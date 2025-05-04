@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text } from '@react-three/drei';
-import skills from './skills';
+import skills from './Skills.js';
 
 function SkillPoints() {
   const groupRef = useRef();
