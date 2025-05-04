@@ -73,7 +73,7 @@ export default function SkillCloud() {
 
       {/* Canvas */}
       <div className="relative flex justify-center items-center z-20">
-        <Canvas camera={{ position: [0, 0, 10] }} className='h-80% md:h-[100%] w-[80%] md:w-[100%]'>
+        <Canvas camera={{ position: [0, 0, 10] }} className='h-[100%] w-[100%]'>
           <ambientLight intensity={0.7} />
           <directionalLight position={[5, 5, 5]} intensity={0.6} />
           <OrbitControls enableZoom={false} />
