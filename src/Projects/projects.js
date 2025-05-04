@@ -11,8 +11,8 @@ const projects=[
         projectname: "my portfolio",
         projectpic: "./Images/myportfolio.jpeg",
         projectdescription:"Responsive React Tailwind portfolio showcasing achievements.",
-        githubLink: "https://github.com/vikas9872/myportfolio",
-        demoLink: "https://myportfolio-vikas-shanabhog-s-projects.vercel.app/"
+        githubLink: "https://github.com/vikas9872/vikasshanabhogportfolio",
+        demoLink: "https://vikasshanabhog.vercel.app/"
     },
     {
         id: 3,
