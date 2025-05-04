@@ -50,7 +50,7 @@ function SkillPoints() {
 
 export default function SkillCloud() {
   return (
-    <div className="relative w-full h-screen  flex flex-col md:flex-row justify-center items-center bg-[#f1efec] overflow-hidden pt-16" id='skills'>
+    <div className="relative w-full h-[80%]  flex flex-col md:flex-row justify-center items-center bg-[#f1efec] overflow-hidden pt-16" id='skills'>
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center w-full px-4">
         {/* Title */}
