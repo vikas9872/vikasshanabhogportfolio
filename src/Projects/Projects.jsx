@@ -29,7 +29,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="relative min-h-screen flex justify-center items-center bg-[#f1efec] overflow-hidden pt-16"
+      className="relative h-screen w-full flex justify-center items-center bg-[#f1efec] overflow-hidden pt-16"
     >
       {/* Background Video */}
       <video
