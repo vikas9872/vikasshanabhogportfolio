@@ -18,7 +18,7 @@ const projects=[
         id: 3,
         projectname: "cityone",
         projectpic: "./Images/cityone.jpeg",
-        projectdescription:"Responsive City Cleaning App for complaints, built with Vite, React, Tailwind, and Firebase.",
+        projectdescription:"Responsive City Cleaning App for raising complaints.",
         githubLink: "https://github.com/vikas9872/cityone",
         demoLink: "https://cityone.vercel.app/"
     }

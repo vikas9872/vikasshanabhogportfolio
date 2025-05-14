@@ -65,7 +65,7 @@ const Projects = () => {
                   {project.date}
                 </p>
               </div>
-              <div className="ms-4 mt-2 pb-5 md:ms-0">
+              <div className="ms-4 mt-2 pb-5 md:ms-0 h-[400px] w-[300px]">
                 <h4 className="mb-1.5 text-xl font-semibold text-white">{project.projectname}</h4>
                 <img
                   src={project.projectpic}

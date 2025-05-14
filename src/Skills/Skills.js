@@ -1,47 +1,58 @@
 const skills = [
     { 
         id: 1, 
-        name: "Java", 
+        name: "Java",
+        images: "/Images/java.png"
     },
     { 
         id: 2, 
-        name: "Python", 
+        name: "Python",
+        images: "/Images/python.png" 
     },
     { 
         id: 3, 
-        name: "HTML", 
+        name: "HTML",
+        images: "/Images/html.png" 
     },
     { 
         id: 4, 
-        name: "CSS", 
+        name: "CSS",
+        images: "/Images/css.png" 
     },
     { 
         id: 5, 
-        name: "JavaScript", 
+        name: "JavaScript",
+        images: "/Images/javascript.png" 
     },
     { 
         id: 6, 
-        name: "React JS", 
+        name: "React JS",
+        images: "/Images/react.png" 
     },
     { 
         id: 7, 
-        name: "MySQL", 
+        name: "MySQL",
+        images: "/Images/mysql.png" 
     },
     { 
         id: 8, 
-        name: "Bootstrap", 
+        name: "Bootstrap",
+        images: "/Images/bootstrap.png" 
     },
     { 
         id: 9, 
-        name: "Tailwind CSS", 
+        name: "Tailwind CSS",
+        images: "/Images/tailwindcss.png" 
     },
     {
         id: 10,
-        name: "Next.js"
+        name: "Next.js",
+        images: "/Images/nextjs.png"
     },
     {
         id: 11,
-        name: "Firebase"
+        name: "Firebase",
+        images: "/Images/firebase.png"
     }
 ];
 export default skills;
