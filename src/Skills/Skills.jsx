@@ -47,34 +47,40 @@ const Skills = () => {
         </div>
 
         {/* Timeline Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
           {[0, 1, 2].map((colIndex) => (
             <div
               key={colIndex}
-              className="relative border-l-2 border-white"
+              className="flex flex-col items-center gap-8"
             >
               {skills
                 .filter((_, i) => i % 3 === colIndex)
-                .map((skill, i) => (
-                  <div
-                    key={i}
-                    className={`relative mb-10 transition-all duration-700 ease-in-out transform ${
-                      isVisible
-                        ? 'opacity-100 translate-y-0'
-                        : 'opacity-0 translate-y-10'
-                    } delay-[${(colIndex * 3 + i) * 150}ms]`}
-                  >
-                    {/* Dot */}
-                    <div className="absolute left-[-6px] top-[18px] h-3 w-3 rounded-full bg-white border-2 border-black z-20"></div>
+                .map((skill, index, arr) => (
+                  <div key={index} className="flex flex-row items-center gap-4 relative">
+                    {/* Timeline Dot and Line */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-4 h-4 rounded-full bg-white border-2 border-black"></div>
+                      {index !== arr.length - 1 && (
+                        <div
+                          className={`w-[2px] h-10 md:h-16 bg-white transition-all duration-700 ${
+                            isVisible ? 'scale-y-100' : 'scale-y-0'
+                          } origin-top`}
+                        ></div>
+                      )}
+                    </div>
 
                     {/* Card */}
-                    <div className="ml-3 bg-white/10 border border-white rounded-xl p-4 flex items-center justify-center gap-4 backdrop-blur-md">
+                    <div
+                      className={`flex items-center gap-4 p-4 border border-white bg-white/10 rounded-xl backdrop-blur-md transition-opacity duration-700 h-[60px] md:h-[80px] w-[180px] md:w-[200px] ${
+                        isVisible ? 'opacity-100' : 'opacity-0'
+                      }`}
+                    >
                       <img
                         src={skill.images}
                         alt={skill.name}
                         className="h-12 w-12 object-contain"
                       />
-                      <span className="text-white font-medium text-lg">
+                      <span className="text-white text-md md:text-lg font-medium">
                         {skill.name}
                       </span>
                     </div>
@@ -89,3 +95,4 @@ const Skills = () => {
 };
 
 export default Skills;
+
