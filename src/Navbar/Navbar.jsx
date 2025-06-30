@@ -12,10 +12,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="text-white backdrop-blur-md">
+    <nav className="text-black backdrop-blur-md">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
-        <div className="text-1xl md:text-2xl">
+        <div className="text-1xl md:text-2xl font-bold">
           <a href="#home">{"</Vikas>"}</a>
         </div>
 
@@ -24,19 +24,19 @@ const Navbar = () => {
           <li>
             <a href="#education" className="relative group">
               Education
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[#3F72AF] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
           <li>
             <a href="#projects" className="relative group">
               Projects
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[#3F72AF] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
           <li>
             <a href="#skills" className="relative group">
               Skills
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[#3F72AF] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
         </ul>
@@ -64,23 +64,23 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="md:hidden text-white space-y-4 px-6 py-4 backdrop-blur-md">
+        <ul className="md:hidden text-black space-y-4 px-6 py-4 backdrop-blur-md">
           <li>
             <a href="#education" className="relative group block" onClick={closeMenu}>
               Education
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[#3F72AF] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
           <li>
             <a href="#projects" className="relative group block" onClick={closeMenu}>
               Projects
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[#3F72AF] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
           <li>
             <a href="#skills" className="relative group block" onClick={closeMenu}>
               Skills
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-[#3F72AF] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
         </ul>

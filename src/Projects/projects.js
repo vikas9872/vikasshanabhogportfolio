@@ -5,7 +5,7 @@ const projects=[
         projectdescription:"Responsive website with React, Node.js, MongoDB; optimized online ordering.",
         projectpic: "./Images/foooodcourttttt.jpeg",
         githubLink: "https://github.com/vikas9872/MiniProject",
-        demoLink: "https://foodcourttt.onrender.com/"
+        demoLink: "https://fooodcourttt.vercel.app/"
     },
     {
         id: 2,

@@ -1,89 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import education from './education.js';
+import React, { useEffect, useRef, useState } from 'react';
+import education from './education';
 
 const Education = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const educationRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const observer = new window.IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
-
-    const section = document.getElementById('education');
-    if (section) {
-      observer.observe(section);
-    }
-
+    if (educationRef.current) observer.observe(educationRef.current);
     return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
+      if (educationRef.current) observer.unobserve(educationRef.current);
     };
   }, []);
 
   return (
     <div
       id="education"
-      className="relative min-h-screen flex justify-center items-center bg-[#f1efec] overflow-hidden pt-16"
+      ref={educationRef}
+      className="relative min-h-screen flex flex-col bg-gradient-to-r from-[#b2fefa] to-[#0ed2f7] overflow-hidden pt-16 px-2 sm:px-4"
     >
-      <div className='flex flex-col md:flex-row items-center'>
-        {/* Background Video */}
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-          src="/Videos/education.mp4"
-          autoPlay
-          loop
-          muted
-        ></video>
-
-        {/* Overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-80 z-0"></div>
-
-        {/* Title */}
-        <div className="relative z-10 text-black dark:text-white font-bold text-4xl md:text-7xl font-roboto-condensed p-10">
-          EDUCATION
-        </div>
-
-        {/* Timeline */}
-        <div className="relative z-10 flex flex-col items-start gap-8 w-full max-w-4xl px-4">
-          {education.map((edu, index) => (
-            <div key={edu.id} className="flex flex-row items-center gap-4">
-              {/* Timeline Dot and Line */}
-              <div className="flex flex-col items-center">
-                {/* Dot */}
-                <div className="w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></div>
-                {/* Line */}
-                {index !== education.length - 1 && (
-                  <div
-                    className={`w-[2px] h-16 bg-gray-400 dark:bg-gray-600 transition-all duration-700 ${isVisible ? 'scale-y-100' : 'scale-y-0'
-                      } origin-top`}
-                  ></div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div
-                className={`flex flex-col gap-2 transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'
-                  }`}
-              >
-                <h4 className="text-1xl font-semibold text-black dark:text-white">
-                  {edu.name}
-                </h4>
-                <p className="text-1xl text-gray-700 dark:text-gray-300">
-                  {edu.course}
-                </p>
-                <p className="text-1xl text-gray-500 dark:text-gray-400">
-                  {edu.yoc}
-                </p>
-              </div>
+      <div className="text-black font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-roboto-condensed mb-8 sm:mb-12 text-center">
+        EDUCATION
+      </div>
+      <div className="flex flex-col gap-6 sm:gap-8 items-center">
+        {education.map((item, idx) => (
+          <div
+            key={item.id}
+            className={`flex items-center w-full max-w-xs sm:max-w-xl transition-all duration-700 ease-out
+              ${isVisible ? 'translate-x-0 opacity-100 scale-100' : '-translate-x-20 opacity-0 scale-90'}
+              delay-[${idx * 120}ms] hover:scale-105`}
+            style={{
+              transitionDelay: `${idx * 120}ms`
+            }}
+          >
+            {/* Round image */}
+            <div className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg overflow-hidden`}>
+              <img
+                src={item.school}
+                alt={item.name}
+                className="w-full h-full object-cover rounded-full transition-transform duration-500"
+              />
             </div>
-          ))}
-        </div>
+            {/* Rectangle content with gap */}
+            <div className="flex-1 ml-2 sm:ml-4 bg-white rounded-r-full shadow-lg px-4 sm:px-6 md:px-8 py-3 sm:py-4 flex flex-col justify-center border-l-4 border-white transition-transform duration-500">
+              <div className="text-base sm:text-lg md:text-2xl font-bold text-black">{item.name}</div>
+              <div className="text-xs sm:text-sm md:text-md text-gray-700">{item.course}</div>
+              <div className="text-xs sm:text-sm text-gray-500">{item.yoc}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

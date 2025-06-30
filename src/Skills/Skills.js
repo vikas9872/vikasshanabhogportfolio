@@ -53,6 +53,21 @@ const skills = [
         id: 11,
         name: "Firebase",
         images: "/Images/firebase.png"
+    },
+    {
+        id: 12,
+        name: "C++",
+        images: "/Images/cpp.png"
+    },
+    {
+        id: 13,
+        name: "Material UI",
+        images: "/Images/materialui.png"
+    },
+    {
+        id: 14,
+        name: "Mongo DB",
+        images: "/Images/mongodb.png"
     }
 ];
 export default skills;

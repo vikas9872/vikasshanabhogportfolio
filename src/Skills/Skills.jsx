@@ -1,98 +1,77 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import skills from './Skills.js';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const skillsRef = useRef(null);
+
+  const getCols = () => {
+    if (window.innerWidth >= 1024) return 5;
+    if (window.innerWidth >= 768) return 4;
+    if (window.innerWidth >= 640) return 3;
+    return 2;
+  };
+
+  const [cols, setCols] = useState(getCols());
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const handleResize = () => setCols(getCols());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
-
-    const section = document.getElementById('skills');
-    if (section) observer.observe(section);
-
+    if (skillsRef.current) observer.observe(skillsRef.current);
     return () => {
-      if (section) observer.unobserve(section);
+      if (skillsRef.current) observer.unobserve(skillsRef.current);
     };
   }, []);
 
   return (
     <div
       id="skills"
-      className="relative min-h-screen flex justify-center items-center bg-[#f1efec] overflow-hidden pt-16"
+      ref={skillsRef}
+      className="relative min-h-screen flex flex-col bg-gradient-to-r from-[#b2fefa] to-[#0ed2f7] overflow-hidden pt-16 px-2 sm:px-4"
     >
-      {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        src="/Videos/skills.mp4"
-        autoPlay
-        loop
-        muted
-      ></video>
-
-      {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-80 z-0"></div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center w-full px-4">
-        {/* Title */}
-        <div className="text-white font-bold text-6xl md:text-7xl font-roboto-condensed mb-12 text-center">
-          SKILLS
-        </div>
-
-        {/* Timeline Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
-          {[0, 1, 2].map((colIndex) => (
+      <div className="text-black font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-8 sm:mb-12 text-center">
+        SKILLS
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 items-center w-full max-w-5xl mx-auto">
+        {skills.map((skill, idx) => {
+          // Animate row by row, like education
+          const row = Math.floor(idx / cols);
+          return (
             <div
-              key={colIndex}
-              className="flex flex-col items-center gap-8"
+              key={skill.name}
+              className={`flex items-center justify-center transition-all duration-700
+                ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}
+                delay-[${row * 120}ms]`}
+              style={{
+                transitionDelay: `${row * 120}ms`
+              }}
             >
-              {skills
-                .filter((_, i) => i % 3 === colIndex)
-                .map((skill, index, arr) => (
-                  <div key={index} className="flex flex-row items-center gap-4 relative">
-                    {/* Timeline Dot and Line */}
-                    <div className="flex flex-col items-center">
-                      <div className="w-4 h-4 rounded-full bg-white border-2 border-black"></div>
-                      {index !== arr.length - 1 && (
-                        <div
-                          className={`w-[2px] h-10 md:h-16 bg-white transition-all duration-700 ${
-                            isVisible ? 'scale-y-100' : 'scale-y-0'
-                          } origin-top`}
-                        ></div>
-                      )}
-                    </div>
-
-                    {/* Card */}
-                    <div
-                      className={`flex items-center gap-4 p-4 border border-white bg-white/10 rounded-xl backdrop-blur-md transition-opacity duration-700 h-[60px] md:h-[80px] w-[180px] md:w-[200px] ${
-                        isVisible ? 'opacity-100' : 'opacity-0'
-                      }`}
-                    >
-                      <img
-                        src={skill.images}
-                        alt={skill.name}
-                        className="h-12 w-12 object-contain"
-                      />
-                      <span className="text-white text-md md:text-lg font-medium">
-                        {skill.name}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg overflow-hidden bg-white group transition-all duration-300">
+                <img
+                  src={skill.images}
+                  alt={skill.name}
+                  className="w-[70%] h-[70%] object-contain rounded-full transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
+      </div>
+      <div className="w-full absolute bottom-0 left-0 text-center text-black font-semibold text-xs sm:text-lg opacity-80 bg-white">
+        Made by: Vikas. Shanabhog
       </div>
     </div>
   );
 };
 
 export default Skills;
-

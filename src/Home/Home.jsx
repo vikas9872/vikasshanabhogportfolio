@@ -1,5 +1,6 @@
-import React from 'react';
-import { useTypewriter, Cursor } from "react-simple-typewriter"
+import React, { useEffect, useState } from 'react';
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import { BiLogoGmail, BiLogoLinkedin, BiLogoGithub, BiLogoWhatsapp } from "react-icons/bi";
 
 const Home = () => {
   const [text] = useTypewriter({
@@ -8,6 +9,11 @@ const Home = () => {
     typeSpeed: 120,
     deleteSpeed: 120
   });
+  const [showSvg, setShowSvg] = useState(false);
+
+  useEffect(() => {
+    setShowSvg(true);
+  }, []);
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = "./Resume/VikasResume.pdf";
@@ -24,42 +30,71 @@ const Home = () => {
     window.location.href="mailto:vikasshanabhog0@gmail.com"
   }
   return (
-    <div className="relative min-h-screen flex justify-start items-center bg-[#f1efec] overflow-hidden pt-16" id='home'>
-      {/* Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/Videos/home.mp4"
-        autoPlay
-        loop
-        muted
-      ></video>
+    <div
+      className="relative min-h-screen flex justify-start items-center bg-gradient-to-r from-[#b2fefa] to-[#0ed2f7] overflow-hidden pt-16"
+      id='home'
+    >
       {/* Content */}
-      <div className="relative w-[100%] z-10 h-[100%] flex flex-col px-4">
-        <div className="flex flex-col items-start p-2">
-          <p className='text-white text-2xl md:text-4xl font-bold'>Hi, I’m {text}<Cursor cursorStyle="|" /></p>
-          <p className="text-white text-1xl md:text-md pt-2">
+      <div className="relative w-full z-10 h-full flex flex-col-reverse md:flex-row px-4 items-center">
+        <div className="flex flex-col items-start p-2 flex-1">
+          <p className='text-black text-2xl md:text-4xl font-bold flex items-center gap-2'>
+            Hi,
+            <span
+              className="inline-block animate-wave origin-bottom"
+              role="img"
+              aria-label="waving hand"
+              style={{ display: 'inline-block' }}
+            >
+              👋
+            </span>
+          </p>
+          <p className='text-black text-2xl md:text-4xl font-bold flex items-center gap-1 mt-2'>
+            I’m {text}
+            <Cursor cursorStyle="|" />
+          </p>
+          <p className="text-black text-1xl md:text-md pt-2">
             A Full-Stack Web Developer passionate about building modern, responsive, and user-friendly web applications.
           </p>
-          <p className="text-white text-1xl md:text-md pt-2">
+          <p className="text-black text-1xl md:text-md pt-2">
             Let’s connect and build something great together.
           </p>
           <button className='bg-white text-black p-2 rounded-md pt-2' onClick={handleDownload}>Download resume</button>
-          <div className="flex gap-2 w-[50%] pt-2">
+          <div className="flex flex-wrap gap-4 w-full sm:w-[50%] pt-2">
             <button onClick={handleLinkedIn}>
-              <img src="/Images/linkedIn.png" className='h-[30px] md:h-[40px] w-[30px] md:w-[40px]' alt="linkedin" />
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center shadow-md overflow-hidden">
+                <BiLogoLinkedin className="w-6 h-6 md:w-8 md:h-8 text-blue-700" aria-label="linkedin" />
+              </div>
             </button>
             <button onClick={handleGithub}>
-              <img src="/Images/github.png" className='h-[30px] md:h-[40px] w-[30px] md:w-[40px]' alt="github" />
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center shadow-md overflow-hidden">
+                <BiLogoGithub className="w-6 h-6 md:w-8 md:h-8 text-black" aria-label="github" />
+              </div>
             </button>
             <button onClick={handleGmail}>
-              <img src="/Images/gmail.png" className='h-[30px] md:h-[40px] w-[30px] md:w-[40px]' alt="gmail" />
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center shadow-md overflow-hidden">
+                <BiLogoGmail className="w-6 h-6 md:w-8 md:h-8 text-red-600" aria-label="gmail" />
+              </div>
             </button>
+            <a
+              href="https://wa.me/918296689623"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center shadow-md overflow-hidden"
+              aria-label="whatsapp"
+            >
+              <BiLogoWhatsapp className="w-6 h-6 md:w-8 md:h-8 text-green-500" />
+            </a>
           </div>
         </div>
+        <div className="flex-1 flex justify-center items-center mt-8 md:mt-0">
+          <img
+            src="/Images/home.svg"
+            alt="Home Illustration"
+            className={`w-48 h-48 md:w-80 md:h-80 transition-all duration-1000 ease-out
+              ${showSvg ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-90'}`}
+          />
+        </div>
       </div>
-      {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-80 z-0"></div>
-
     </div>
   );
 };
