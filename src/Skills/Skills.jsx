@@ -67,11 +67,12 @@ const Skills = () => {
           );
         })}
       </div>
-      <div className="w-full absolute bottom-0 left-0 text-center text-black font-semibold text-xs sm:text-lg opacity-80 bg-white">
-        Made by: Vikas. Shanabhog
-      </div>
     </div>
   );
 };
 
 export default Skills;
+
+{/* <div className="w-full absolute bottom-0 left-0 text-center text-black font-semibold text-xs sm:text-lg opacity-80 bg-white">
+        Made by: Vikas. Shanabhog
+      </div> */}

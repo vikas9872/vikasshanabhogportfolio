@@ -4,6 +4,7 @@ import Home from './Home/Home'
 import Education from './Education/Education.jsx'
 import Projects from './Projects/Projects.jsx'
 import Skills from './Skills/Skills.jsx'
+import Contact from './Contact/Contact.jsx'
 function App() {
   return (
     <>
@@ -21,6 +22,9 @@ function App() {
       </div>
       <div>
         <Skills/>
+      </div>
+      <div>
+        <Contact/>
       </div>
     </>
   )

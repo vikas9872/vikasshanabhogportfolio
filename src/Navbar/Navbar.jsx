@@ -39,11 +39,17 @@ const Navbar = () => {
               <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
+          <li>
+            <a href="#contact" className="relative group">
+              Contact me
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
         </ul>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-white focus:outline-none">
+          <button onClick={toggleMenu} className="text-black focus:outline-none">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -64,25 +70,35 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="md:hidden text-black space-y-4 px-6 py-4 backdrop-blur-md">
+        <ul className="md:hidden text-black space-y-4 px-6 py-8 backdrop-blur-md">
           <li>
             <a href="#education" className="relative group block" onClick={closeMenu}>
               Education
               <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
+          <hr />
           <li>
             <a href="#projects" className="relative group block" onClick={closeMenu}>
               Projects
               <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
+          <hr />
           <li>
             <a href="#skills" className="relative group block" onClick={closeMenu}>
               Skills
               <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
             </a>
           </li>
+          <hr />
+          <li>
+            <a href="#contact" className="relative group block" onClick={closeMenu}>
+              Contact me
+              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          </li>
+          <hr />
         </ul>
       )}
     </nav>
