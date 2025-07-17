@@ -22,7 +22,7 @@ const Education = () => {
     <div
       id="education"
       ref={educationRef}
-      className="relative min-h-screen flex flex-col bg-gradient-to-r from-[#b2fefa] to-[#0ed2f7] overflow-hidden pt-16 px-2 sm:px-4"
+      className="relative min-h-screen flex flex-col overflow-hidden pt-16 px-2 sm:px-4"
     >
       <div className="text-black font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-roboto-condensed mb-8 sm:mb-12 text-center">
         EDUCATION

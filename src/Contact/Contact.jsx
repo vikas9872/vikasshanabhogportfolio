@@ -25,7 +25,6 @@ const Contact = () => {
         id="contact"
         sx={{
           minHeight: "100vh",
-          background: "linear-gradient(to right, #b2fefa, #0ed2f7)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

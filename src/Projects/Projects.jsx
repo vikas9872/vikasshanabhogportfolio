@@ -29,7 +29,7 @@ const Projects = () => {
     <div
       id="projects"
       ref={projectsRef}
-      className="relative min-h-screen flex flex-col bg-gradient-to-r from-[#b2fefa] to-[#0ed2f7] overflow-hidden pt-16 px-4"
+      className="relative min-h-screen flex flex-col overflow-hidden pt-16 px-4"
     >
       <div className="text-black font-bold text-4xl md:text-6xl font-roboto-condensed mb-12 text-center">
         PROJECTS

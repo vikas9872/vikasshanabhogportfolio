@@ -31,7 +31,7 @@ const Home = () => {
   }
   return (
     <div
-      className="relative min-h-screen flex justify-start items-center bg-gradient-to-r from-[#b2fefa] to-[#0ed2f7] overflow-hidden pt-16"
+      className="relative min-h-screen flex justify-start items-center overflow-hidden pt-16"
       id='home'
     >
       {/* Content */}
