@@ -16,12 +16,12 @@ const projects=[
         demoLink: "https://vikasshanabhog.vercel.app/"
     },
     {
-        id: 3,
-        projectname: "cityone",
-        projectpic: "./Images/cityone.jpeg",
-        projectdescription:"Responsive City Cleaning App for raising complaints.",
-        githubLink: "https://github.com/vikas9872/cityone",
-        demoLink: "https://cityone.vercel.app/"
-    }
+    id: 3,
+    projectname: "Job Recommendation System",
+    projectpic: "./Images/jobrecommendationsystem.png",
+    projectdescription: "ML-powered Django system recommending jobs based on user resumes and skills.",
+    githubLink: "https://github.com/vikas9872/jobrecommendationsystemproject",
+    demoLink: "https://jobrecommendationsystemproject.onrender.com/" 
+}
 ];
 export default projects;
