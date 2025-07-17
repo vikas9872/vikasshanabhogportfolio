@@ -73,8 +73,8 @@ const Contact = () => {
               fullWidth
               sx={{
                 mt: 2,
-                background: "linear-gradient(to right, #0ed2f7, #b2fefa)",
-                color: "#000",
+                background: "#1c75d4",
+                color: "#ffff",
                 fontWeight: "bold",
                 fontFamily: '"Libertinus Mono", monospace'
               }}
